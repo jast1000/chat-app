@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{room}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="newMessage()">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let m of chatRoom | async">
+      <ion-label>
+        <h3>{{m.user}} - {{m.date}}</h3>
+        <h2>{{m.message}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
